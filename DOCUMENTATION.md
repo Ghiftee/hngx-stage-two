@@ -33,6 +33,20 @@ Meaning: This status code indicates that the request has been successfully proce
 
 ## Sample Usage
 
+### View all persons
+```http
+Endpoint: `GET /api`
+
+Request:
+GET /api
+
+### Response(200 OK):
+{
+    "id": 1,
+    "name": "Mark Essien"
+}
+```
+
 ### Create a Person
 
 **Request:**
