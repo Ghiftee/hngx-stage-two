@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/', [PersonController::class, 'create']);
+Route::get('/{id}', [PersonController::class, 'read']);
