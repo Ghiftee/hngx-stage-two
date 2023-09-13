@@ -24,5 +24,14 @@ class PersonController extends Controller
         }
     }
 
+    public function read($id){
+        $person = Person::find($id);
+        if(!$person){
+            return response()->json(['message' => 'Person not found'], 404);
+        }
+
+        return response()->json($person, 200);
+    }
+
     
 }
