@@ -13,12 +13,12 @@ class PersonController extends Controller
         ]);
 
         try {
-            $person = new Person();
-            $person->name = $request->input('name');
-            $person->save();
+            $person = Person::create([
+                'name' => $request->input('name'),
+            ]);
             return response()->json($person, 201);
-        } catch(\Illuminate\Database\QueryException $e){
-            if  ($e->errorInfo[1] == 1062){
+        } catch(\Exception $e){
+            if  ($e instanceof \Illuminate\Database\QueryException && $e->errorInfo[1] == 1062){
                 return response()->json(['message' => 'Person with the same name already exists'], 409);
             }
         }
@@ -59,7 +59,7 @@ class PersonController extends Controller
 
         $person->delete();
 
-        return response()->json(204);
+        return response()->json(null, 204);
     }
 
 }
