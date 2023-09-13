@@ -5,10 +5,14 @@ This is a comprehensive documentation for the API.
 ## Table of Contents
 
 - [Request/Response Formats](#requestresponse-formats)
+- [Status codes](#status-codes)
 - [Sample Usage](#sample-usage)
 - [Local and Server Deployment](#local-and-server-deployment)
 
 ## Request/Response Formats
+The request and response format in this project is json.
+
+## Status codes
 
 > The following are the HTTP status codes that are found in this project and their meanings:
 
