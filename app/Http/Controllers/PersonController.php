@@ -33,5 +33,22 @@ class PersonController extends Controller
         return response()->json($person, 200);
     }
 
+    public function update(Request $request, $id){
+        $request->validate([
+            'name' => 'required|string'
+        ]);
+
+        $person = Person::find($id);
+
+        if (!$person){
+            return response()->json(['message' => 'Person not found'], 404);
+        }
+
+        $person->name = $request->input('name');
+        $person->save();
+
+        return response()->json($person, 200);
+    }
+
     
 }
