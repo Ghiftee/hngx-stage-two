@@ -50,5 +50,16 @@ class PersonController extends Controller
         return response()->json($person, 200);
     }
 
-    
+    public function delete($id){
+        $person = Person::find($id);
+
+        if (!$person){
+            return response()->json(['message' => 'Person not found'], 404);
+        }
+
+        $person->delete();
+
+        return response()->json(204);
+    }
+
 }
