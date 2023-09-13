@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class PersonController extends Controller
 {
+    public function index(){
+        $persons = Person::select('id', 'name')->get();
+        return response()->json($persons, 200);
+    }
+
     public function create(Request $request){
         $request->validate([
             'name' => 'required|string'

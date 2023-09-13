@@ -19,6 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/', [PersonController::class, 'index']);
 Route::post('/', [PersonController::class, 'create']);
 Route::get('/{id}', [PersonController::class, 'read']);
 Route::put('/{id}', [PersonController::class, 'update']);
